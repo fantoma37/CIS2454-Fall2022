@@ -45,7 +45,7 @@ if ($action == "insert" && $symbol != "" && $name != "" && $current_price != 0) 
     
     // U of CRUD, UPDATE uses other post method below
 } else if ($action == "update" && $symbol != "" && $name != "" && $current_price != 0) {
-     $query = "update stocks set name = :name, current_price=  :current_price"
+     $query = "update stocks set name = :name, current_price=  :current_price "
             . "where symbol = :symbol";
     
     // value binding protects against SQL injections
@@ -57,6 +57,18 @@ if ($action == "insert" && $symbol != "" && $name != "" && $current_price != 0) 
     
     $statement->execute();
     $statement->closeCursor();
+} else if ($action == "delete" && $symbol != "") {
+     $query = "delete from stocks "
+            . "where symbol = :symbol";
+    
+    // value binding protects against SQL injections
+    $statement = $database->prepare($query);
+    $statement->bindValue(":symbol", $symbol);
+    // takes $symbol and plugs it in above to :symbol
+    
+    $statement->execute();
+    $statement->closeCursor();
+    
 } else if ($action != "") {
     // if there is an action and neither work, must be missing data
     echo "<p?Missing symbol, name, or current price</p>";
@@ -136,6 +148,15 @@ $statement->closeCursor();
             <input type="hidden" name='action' value='update'/>
             <label>&nbsp;</label>
             <input type="submit" value="Update Stock"/> 
+        </form>
+        <br>
+        <h2>Delete Stock</h2>
+         <form action="index.php" method="post"> 
+            <label>Symbol:</label> 
+            <input type="text" name="symbol"/><br> 
+            <input type="hidden" name='action' value='delete'/>
+            <label>&nbsp;</label>
+            <input type="submit" value="Delete Stock"/> 
         </form>
     </body>
 </html>
