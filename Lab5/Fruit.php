@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php
+
+class Fruit {
+
+    private $name, $color, $size;
+
+    public function __construct($name, $color, $size) {
+        $this->setName($name);
+        $this->setColor($color);
+        $this->setSize($size);
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getColor() {
+        return $this->color;
+    }
+
+    public function getSize() {
+        return $this->size;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setColor($color) {
+        $this->color = $color;
+    }
+
+    public function setSize($size) {
+        $this->size = $size;
+    }
+
+}
