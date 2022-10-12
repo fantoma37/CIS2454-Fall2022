@@ -13,7 +13,7 @@ try {
     if ($action == "pizza_size" || "toppings") {
         if ($pizza_size == "large") {
             $price = 9;
-            echo "Size: Large<br><br>";
+            echo "Size: Large</br>";
             if ($toppings != NULL) {
                 echo "Toppings:<br>";
                 foreach ($toppings as $key => $value) {
@@ -23,7 +23,7 @@ try {
             }
         } else if ($pizza_size == "medium") {
             $price = 7;
-            echo "Size: Medium<br><br>";
+            echo "Size: Medium</br>";
             if ($toppings != NULL) {
                 echo "Toppings:<br>";
                 foreach ($toppings as $key => $value) {
@@ -33,7 +33,7 @@ try {
             }
         } else if ($pizza_size == "small") {
             $price = 5;
-            echo "Size: Small<br><br>";
+            echo "Size: Small</br>";
             if ($toppings != NULL) {
                 echo "Toppings:<br>";
                 foreach ($toppings as $key => $value) {
