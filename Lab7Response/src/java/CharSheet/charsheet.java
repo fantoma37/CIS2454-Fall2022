@@ -3,12 +3,10 @@ package CharSheet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "charsheet", urlPatterns = {"/charsheet"})
 public class charsheet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -24,10 +22,7 @@ public class charsheet extends HttpServlet {
             out.print("Strength: " + request.getParameter("strength") + "<br>");
             out.print("Dexterity: " + request.getParameter("dexterity") + "<br>");
             out.print("Intelligence: " + request.getParameter("intelligence") + "<br>");
-
             out.println("</html>");
-
-           
         }
     }
 
@@ -47,5 +42,4 @@ public class charsheet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }
